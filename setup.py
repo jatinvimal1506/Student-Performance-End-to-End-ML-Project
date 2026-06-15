@@ -1,5 +1,6 @@
 from setuptools import find_packages,setup
 
+#use of setup.py is to consider the current folder as a package and install it when run using -e .
 hypen_e_dot = "-e ."
 def get_requirements(file_path):
     with open(file_path, "r") as f:
@@ -9,7 +10,6 @@ def get_requirements(file_path):
         if hypen_e_dot in requirements:
             requirements.remove(hypen_e_dot)
 
-    print(requirements)
     return requirements
 setup(
     name = "cute-ml-project",
