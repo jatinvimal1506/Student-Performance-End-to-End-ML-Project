@@ -11,6 +11,9 @@ from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation #add to create the numpy arrays and store the preprecessed model 
 from src.components.data_transformation import DataTransformationConfig 
 
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import ModelTrainerConfig
+
 @dataclass
 class DataIngestionConfig:
     train_data_path: str = os.path.join('artifacts', "train.csv")
@@ -57,9 +60,13 @@ class DataIngestion:
         
 #add artifacts in .gitignore
 if __name__ == "__main__":
-    # data ingestion part
+    # 1. Ingestion
     obj = DataIngestion()
-    train_data, test_data = obj.initiate_data_ingestion()
+    train_data_path, test_data_path = obj.initiate_data_ingestion()
 
     data_transformation = DataTransformation()
-    train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_data, test_data)
+    train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_data_path, test_data_path)
+
+    model_trainer = ModelTrainer()
+    r2_score_result = model_trainer.initiate_model_trainer(train_arr, test_arr)
+    print(f"Best Model R2 Score: {r2_score_result}")
