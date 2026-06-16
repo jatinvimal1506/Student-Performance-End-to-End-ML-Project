@@ -11,6 +11,7 @@ def get_requirements(file_path):
             requirements.remove(hypen_e_dot)
 
     return requirements
+
 setup(
     name = "cute-ml-project",
     version = "0.0.1",
