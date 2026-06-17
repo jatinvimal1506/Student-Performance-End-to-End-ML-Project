@@ -16,7 +16,7 @@ from src.utils import save_object
 
 @dataclass
 class DataTransformationConfig: #to store the input(where to store the ouput or the preprocessed model)
-    preprocessor_obj_file_path: str=os.path.join('artifacts',"proprocessor.pkl") #make the path using os.join artifacts/preprocessor.pkl
+    preprocessor_obj_file_path: str=os.path.join('artifacts',"preprocessor.pkl") #make the path using os.join artifacts/preprocessor.pkl
 
 class DataTransformation:
     def __init__(self):
