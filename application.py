@@ -42,6 +42,7 @@ def predict_datapoint():
     
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0") #make sure to write in this fasion and do not write port AWS will assign it's port  
+    app.run(host="0.0.0.0") #make sure to write in this fasion and do not write port AWS will assign it's port 
+    #also remove debug=True if there
 
 
